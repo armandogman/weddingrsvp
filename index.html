@@ -214,13 +214,20 @@ var countdown = setInterval(function() {
         </div>
     </div>
 </section>
-<body>
-
-    <audio id="player" autoplay controls>
+<body onload="playAudio()">
+    <audio id="player" controls>
         <source src="img/SinTi.mp3" type="audio/mp3">
         <source src="img/SinTi.mp3" type="audio/org">
     </audio>
-	</body>
+
+    <script>
+        function playAudio() {
+            var audio = document.getElementById("player");
+            audio.play();
+        }
+    </script>
+</body>
+
 <section class="events section-padding" id="events">
     <div class="container">
         <div class="row">
