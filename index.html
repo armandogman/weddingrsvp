@@ -61,6 +61,7 @@
     <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </head>
 <body id="top">
+
 <!--[if lt IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
@@ -121,14 +122,46 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
-                <h3>We are getting Married</h3>
-                <p>The date is the 3<sup>th</sup><sup></sup> of September '23 and we would like you to be a part of
-                    it.</p>
-                <div class="share-bar"></div>
+                <h3>“Te quiero, Te quise desde el primer momento en que te vi. Te quise incluso antes de verte por primera vez” 
+
+¡Tenemos el gusto de invitarte a presenciar la unión de nuestras vidas!</h3>
+                
+                <div id="countdown" class="countdown-timer"></div>
+                <div class=""></div>
             </div>
         </div>
     </div>
 </section>
+
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("September 3, 2023 00:00:00").getTime();
+
+// Update the countdown every 1 second
+var countdown = setInterval(function() {
+  // Get today's date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now and the countdown date
+  var distance = countDownDate - now;
+
+  // Calculate the days, hours, minutes and seconds remaining
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the countdown
+  document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  // If the countdown is finished, display a message
+  if (distance < 0) {
+    clearInterval(countdown);
+    document.getElementById("countdown").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
 
 <section id="intro">
     <div class="container">
@@ -157,7 +190,14 @@
         </div>
     </div>
 </section>
-
+<body>
+<iframe src="img/SinTi.mp3" allow="autoplay" id="audio" hidden ></iframe>
+    <!-- <iframe src="img/SinTi.mp3" allow="autoplay" id="audio" style="display: none;"></iframe> -->
+    <audio id="player" autoplay controls>
+        <source src="img/SinTi.mp3" type="audio/mp3">
+        <source src="img/SinTi.mp3" type="audio/org">
+    </audio>
+	</body>
 <section class="events section-padding" id="events">
     <div class="container">
         <div class="row">
@@ -170,28 +210,38 @@
                 <div class="wp3">
                     <p><strong>3th September</strong></p>
 
-                    <h5>Ceremony <span class="time">5PM - 6PM</span></h5>
-                    <p>The bride and groom will be greeting the guest and taking pictures.</p>
+                    <h5>Wedding <span class="time">5PM - 6PM</span></h5>
+                    <p>This is the main event in the entire wedding when the bride and the groom tie the
+                        knot. This is when the couple will dance together in the center of the dance floor
+                        and are finally declared husband and wife.</p>
                 </div>
                 <div class="wp5">
                     <h5>Cocktails/Dinner <span class="time">6PM - 8PM</span></h5>
                     <p>Drinks and Dinner will be served</p>
+					
+					<h5>Recepcion <span class="time">8PM-11PM</span></h5>
+                    <p>The dancing and the party starts</p>
                 </div>
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12 rightcol">
                 <div class="wp4">
                     <p><strong>3th September</strong></p>
 
-                    <h5>Wedding <span class="time">8PM-11PM</span></h5>
-                    <p>This is the main event in the entire wedding when the bride and the groom tie the
-                        knot. This is when the couple will dance together in the center of the dance floor
-                        and are finally declared husband and wife.</p>
+                    <h5>Gift Suggestion <span class="time">Money Tree</span></h5>
+                    <p>That you join us is the most important thing! And if it is at your disposal to make a show of affection we will be very grateful!
+					If you don't know what to give meyou can collaborate in the following account
+					</p>
+					<p>Cash App: $servandoGarcia95
+					</p>	
                 </div>
                 <div class="wp6">
                     
                 </div>
             </div>
         </div>
+		
+		
+		
         <div class="row section-padding">
             <div class="col-md-4 col-md-offset-4 text-center">
                 <a class="btn btn-accent btn-small" data-toggle="modal" data-target="#dc-modal">
@@ -251,6 +301,8 @@
                 <p>Help us capture the moment, tag your photos with the hashtag #ServandoAndMaybelin
                     
                 </p>
+				
+
             </div>
         </div>
         <div class="row section-border wp7">
@@ -454,11 +506,54 @@
         <div class="row">
             <div class="col-sm-12 text-center content">
                 <span class="to-top-wrapper"><a href="#top" class="to-top"><i class="fa fa-angle-up"></i></a></span>
-                <p>Crafted by Armando Garcia  <span class="fa fa-heart pulse2"></span> </p>
+                <p>Crafted by Armando Garcia <span class="fa fa-heart pulse2"></span></p>
+                <div id="countdown"></div>
             </div>
         </div>
     </div>
 </footer>
+
+<style>
+    #countdown {
+        font-size: 24px;
+        font-weight: bold;
+    }
+</style>
+
+<script>
+    // Set the target date for the countdown (September 3, 2023)
+    var targetDate = new Date('September 3, 2023').getTime();
+
+    // Update the countdown every second
+    var countdownInterval = setInterval(updateCountdown, 1000);
+
+    function updateCountdown() {
+        // Get the current date and time
+        var now = new Date().getTime();
+
+        // Calculate the time remaining in milliseconds
+        var timeRemaining = targetDate - now;
+
+        // Check if the countdown has ended
+        if (timeRemaining <= 0) {
+            clearInterval(countdownInterval); // Stop the countdown
+            document.getElementById('countdown').innerHTML = 'Countdown has ended!';
+            return;
+        }
+
+        // Calculate the days, hours, minutes, and seconds remaining
+        var days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+        // Display the countdown on the webpage
+        var countdownElement = document.getElementById('countdown');
+        countdownElement.innerHTML = 'Countdown: ' + days + ' days, ' + hours + ' hours, ' + minutes + ' minutes, ' + seconds + ' seconds';
+    }
+</script>
+
+
 <script src="js/vendor/jquery-1.11.2.min.js" onerror="loadJsFromCDN('jquery.js')"></script>
 <script src="node_modules/waypoints/lib/jquery.waypoints.min.js" onerror="loadJsFromCDN('waypoints.js')"></script>
 <script src="js/jquery.fancybox.pack.js"></script>
